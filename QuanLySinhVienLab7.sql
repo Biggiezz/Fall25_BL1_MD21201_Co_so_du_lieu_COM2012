@@ -1,0 +1,108 @@
+create database QuanLyBanHangLab7;
+
+use QuanLyBanHangLab7;
+
+create TABLE SANPHAM(
+MaSP int Primary key,
+MoTa NVARCHAR(300),
+TenSP nvarchar(50),
+Gia double,
+Soluong int
+);
+
+insert into SANPHAM (MaSP, MoTa, TenSP, Gia, Soluong) Values
+(1,N'Samsung Galaxy J7 Pro là một chiếc smartphone phù hợp với những người yêu thích một sản phẩm pin tốt, thích
+hệ điều hành mới cùng những tính năng đi kèm độc quyền',N'Samsung Galaxy J7 Pro',6600000,800),
+(2,N'iPhone 6 là một trong những smartphone được yêu thích nhất. Lắng nghe nhu cầu về thiết kế, khả
+năng lưu trữ và giá cả, iPhone 6 32GB được chính thức phân phối chính hãng tại Việt Nam hứa hẹn sẽ là một sản phẩm rất Hot',
+N'iPhone 6 32GB',8990000,500),
+(3,N'Dell Inspiron 3467 i3 7100U/4GB/1TB/Win10/(M20NR21)',N'Laptop Dell Inspiron 3467',11290000,507),
+(4,N'Pin sạc dự phòng Polymer 5.000 mAh eSaver JP85',N'Pin sạc dự phòng',200000,600),
+(5,N'Nokia 3100 phù hợp với SINH VIÊN ',N'Nokia 3100',700000,100);
+
+
+select *FROM SANPHAM;
+
+create table KHACHHANG(
+MaKH varchar(50) primary key,
+HoVaTenLot NVARCHAR(50),
+Ten nvarchar(50),
+Sodienthoai VARCHAR(50),
+Email VARCHAR(50),
+Diachi varchar(50)
+);
+
+
+INSERT INTO KHACHHANG (MaKH, HoVaTenLot, Ten, Sodienthoai, Email, Diachi) VALUES
+('KH001', N'Nguyễn Thị','Nga', '0912345670', 'ngant@gamil.com', N'15 Quang Trung TP Đà Nẵng'),
+('KH002', N'Trần Công ','Thành', '16109423443', 'thanhtc@gmail.com', N'234 Lê Lợi Quảng Nam'),
+('KH003', N'Lê Hoàng','Nam', '0989354556', 'namlt@yahoo.com', N'23 Trần Phú TP Huế'),
+('KH004', N'Vũ Ngọc','Hiền', '0894545435', 'hienvn@gmail.com', N'37 Nguyễn Thị Thập TP Đà Nẵng');
+
+
+select *from KHACHHANG;
+
+create table HOADON(
+MaKH varchar(50),
+MaHD int primary key,
+Ngaymua date,
+TrangThai NVARCHAR(50),
+FOREIGN KEY (MaKH) references KHACHHANG(MaKH)
+);
+
+insert into HOADON(MaKH, MaHD, Ngaymua, TrangThai) values
+('KH001', 120954, '2016-12-25', N'Đã thanh toán'),
+('KH002', 120955, '2015-4-25', N'Đã thanh toán'),
+('KH003', 120956, '2014-12-25', N'chưa thanh toán'),
+('KH004', 125957, '2020-6-25', N'chưa thanh toán');
+
+select *from HOADON;
+
+CREATE table HoaDonChiTiet(
+MaHoaDonChiTiet int PRIMARY KEY,
+MaHD int,
+MaSP int,
+SoLuong int,
+FOREIGN KEY (MaHD) REFERENCES HOADON(MaHD),
+FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
+);
+
+
+INSERT INTO HoaDonChiTiet (MaHoaDonChiTiet, MaHD, MaSP, SoLuong) VALUES
+(1, 120954, 3, 40),
+(2, 120954, 1, 20),
+(3, 120955, 2, 100),
+(4, 120956, 4, 6),
+(5, 120956, 2, 60),
+(6, 120956, 1, 10),
+(7, 125957, 2, 50);
+
+select *from HoaDonChiTiet;
+-- b Tạo 1 bảng có tên KhachHang_daNang chứa thông tin tin đầy đủ về các khách hàng đến từ Đà Nẵng 
+
+create table KhachHang_DaNang as 
+select *from KHACHHANG
+where Diachi like "TP Đà Nẵng";
+ 
+--  Cập nhật lại thông tin số điện thoại của khách hàng có mã ‘KH002’ có giá trị mới là ‘16267788989’
+update KHACHHANG
+set Sodienthoai = '16267788989'
+where MaKH = 'KH002';
+
+SELECT *FROM KHACHHANG;
+
+-- Tăng số lượng mặt hàng có mã ‘3’ lên thêm ‘200’ đơn vị
+
+-- Giảm giá cho tất cả sản phẩm giảm 5%
+
+-- Tăng số lượng của mặt hàng bán chạy nhất trong tháng 12/2016 lên 100 đơn vị
+
+-- Giảm giá 10% cho 2 sản phẩm bán ít nhất trong năm 2016
+
+-- Cập nhật lại trạng thái “đã thanh toán” cho hoá đơn có mã 120956
+
+-- Xoá mặt hàng có mã sản phẩm là ‘2’ ra khỏi hoá đơn ‘120956’ và trạng thái là chưa thanh toán.
+
+-- Xoá khách hàng chưa từng mua hàng kể từ ngày “1-1-2016”
+
+ 

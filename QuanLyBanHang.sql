@@ -1,0 +1,113 @@
+create database QuanLyBanHang;
+
+use QuanLyBanHang;
+
+create TABLE SANPHAM(
+MaSP int Primary key,
+MoTa NVARCHAR(50),
+TenSP nvarchar(50),
+Gia int,
+Soluong int
+);
+
+insert into SANPHAM (MaSP, MoTa, TenSP, Gia, Soluong) Values
+('01','Hảo Hảo',N'Sản Phẩm 01','1000000','2'),
+('02','KOKOMI đại',N'Sản Phẩm 02','2000000','5'),
+('03','OMACHI',N'Sản Phẩm 03','3000000','4'),
+('04','Mì xào',N'Sản Phẩm 04','4000000','3'),
+('05','Mì trộn',N'Sản Phẩm 05','500000','6');
+
+select *FROM SANPHAM;
+
+create table KHACHHANG(
+MaKH varchar(50) primary key,
+HoVaTenLot NVARCHAR(50),
+Ten nvarchar(50),
+Sodienthoai varchar(50),
+Email VARCHAR(50),
+Diachi varchar(50)
+);
+
+INSERT INTO KHACHHANG (MaKH, HoVaTenLot, Ten, Sodienthoai, Email, Diachi) VALUES
+('KH01', N'Nguyễn Thị','Trang', '0905123456','manhphuc300501@gmail.com', N'Hà Đông'),
+('KH02', N'Trần Ngọc ','Mai', '0906234567','manhphuc3005@gmail.com', N'Cầu Giấy'),
+('KH03', N'Phạm Bảo','Bình', '0907345678', 'manhphuc300503@gmail.com',N'Thanh Xuân'),
+('KH04', N'Lê Thùy','Dung', '0908456789','manhphuc300504@gmail.com', N'Hoàng Mai'),
+('KH05', N'Hoang Văn','Lợi', '0909567890','manhphuc300505@gmail.com', N'Đống Đa');
+
+select *from KHACHHANG;
+
+create table HOADON(
+MaHD int primary key,
+Ngaymua date,
+MaKH varchar(50),
+TrangThai NVARCHAR(50),
+FOREIGN KEY (MaKH) references KHACHHANG(MaKH)
+);
+
+insert into HOADON(MaHD, Ngaymua, MaKH, TrangThai ) values
+('13','2016-12-25','KH01','Chưa thanh toán'),
+('22','2015-4-25','KH02','Đã thanh toán'),
+('33','2014-12-25','KH03','Chưa thanh toán'),
+('44','2020-6-25','KH04','Đã thanh toán'),
+('55','2025-7-25','KH05','Chưa thanh toán');
+
+select *from HOADON;
+
+CREATE table HoaDonChiTiet(
+MaHoaDonChiTiet int PRIMARY KEY,
+MaHD int,
+MaSP int,
+SoLuong int,
+FOREIGN KEY (MaHD) REFERENCES HOADON(MaHD),
+FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
+);
+
+
+INSERT INTO HoaDonChiTiet (MaHoaDonChiTiet, MaHD, MaSP, SoLuong) VALUES
+(11, 13, 1, 2),
+(12, 22, 3, 1),
+(13, 33, 2, 5),
+(14, 44, 5, 3),
+(15, 55, 1, 1);
+
+
+
+-- hiển thị tất cả thông tin có trong bảng khác hàng
+select *from KHACHHANG;
+
+-- Hiển thị 10 khách hàng đầu tiên trong bảng khác hàng
+
+SELECT MaKH, HoVaTenLot, Ten, Email, Sodienthoai
+From KHACHHANG LIMIT 4;
+
+-- Hiển thị thông tin từ bảng sản phẩm;
+
+select MaSP, TenSP,
+(Gia * Soluong) as TongTien
+from SANPHAM;
+
+-- Hiển thị danh sách khách hàng có tên bắt đầu bằng ký tự 'H'
+select 
+CONCAT(HoVaTenLot, '', Ten) as HoVaTen,
+MaKH, DiaChi
+FROM KHACHHANG
+WHERE CONCAT(HoVaTenLot, '', Ten) like  'H%';
+
+
+-- Hiển thị tất cả thông tin các cột khác hàng có địa chỉ 'Đà Nẵng'
+
+select MaKH, HoVaTenLot, Ten, Sodienthoai, Email, Diachi
+from KHACHHANG
+WHERE Diachi like 'Cầu Giấy%';
+
+-- Hiển thị danh sách các hóa đơn có trạng thái là chưa thanh toán và ngày mua hàng năm 2016
+select MaHD, Ngaymua, MaKH, TrangThai
+from HOADON
+WHERE TrangThai LIKE 'Chưa thanh toán%';
+
+-- Hiển thị các hóa đơn có mã Khách hàng thuộc 1  trong 3 mã sau : KH01, KH03, KH06
+
+select *from HOADON
+WHERE MaKH in ('KH01','KH03','KH06');
+
