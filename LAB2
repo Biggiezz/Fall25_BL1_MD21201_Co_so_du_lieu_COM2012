@@ -1,0 +1,97 @@
+LAB 2
+
+Phần 1:
+
+Bài 1: Một Công ty Bất Động Sản có một số văn phòng tại nhiều địa điểm. 
+Mỗi văn phòng gồm thông tin làm số văn phòng và địa điểm đặt trụ sở.
+Mỗi văn phòng có một số nhân viên trực thuộc. Mỗi nhân viên có mã số nhân viên và tên.Với mỗi văn phòng có một nhân viên làm trưởng văn phòng. Một nhân viên có một hay nhiều thân nhân vợ con. Thông tin về nhân thân gồm tên, ngày sinh và mối liên hệ với nhân viên
+Công ty có danh sách các sản phẩm bất động sản cần bán. Thông tin về BĐS gồm mã số BĐS và địa chỉ . Mỗi BĐS được rao bán tại 1 và chỉ một văn phòng.
+Mỗi văn phòng có nhiều BĐS rao bán và có thể không có BĐS nào rao bán
+Mỗi BĐS có một chủ sở hữu. Chủ nhân được xác định bởi mã số chủ sở hữu.
+Một người có thể có nhiều BĐS. Thông tin về chủ sở hữu còn có tên địa chỉ và số điện thoại
+
+Bài làm
+
+Thực thể 1: Văn phòng
+ Thuộc tính:
+ Mã văn phòng (Khóa chính)
+ Địa điểm.
+Thực thể 2: Nhân viên 
+Thuộc tính: 
+Mã nhân viên  (Khóa chính)
+Tên nhân viên
+Mã văn phòng  (Khóa phụ)
+Thực thể 3: Thân nhân 
+Thuộc tính: 
+Mã thân nhân  (Khóa chính)
+Tên
+Ngày sinh
+Mối liên hệ với nhân viên.
+Mã nhân viên (Khóa phụ)
+Thực thể 4: Bất động sản
+Thuộc tính: 
+Mã bất động sản  (Khóa chính)
+Địa chỉ
+Mã văn phòng (Khóa phụ)
+Mã chủ sở hữu  (Khóa phụ)
+Thực thể 5: Chủ sở hữu 
+Thuộc tính: 
+Mã chủ sở hữu (Khóa chính)
+Tên
+Địa chỉ
+Số điện thoại
+
+Mối quan hệ giữa các thực thể
+Văn phòng - Nhân viên: 1 - N
+Nhân viên - Văn phòng: 1 - 1
+Văn phòng -  Trưởng văn phòng: 1 - 1
+Nhân viên - Thân nhân: 1 - N
+Thân nhân - Nhân viên: 1 - 1
+Văn phòng - Bất động sản: 1 - N
+Bất động sản - Văn phòng:  1 - 1
+Chủ sở hữu - Bất động sản: 1 - N
+Bất động sản - Chủ sở hữu: 1 - 1
+   
+Bài 2: Hệ thống quản lý bán hàng
+Công ty bán lẻ muốn xây dựng một hệ thống quản lý bán hàng. Hệ thống này cần lưu trữ thông tin về Khách hàng, Sản phẩm, Hóa đơn và Nhân viên bán hàng.
+Khách hàng: Lưu thông tin về Mã khách hàng, Tên, Số điện thoại, Địa chỉ.
+Sản phẩm: Lưu thông tin về Mã sản phẩm, Tên sản phẩm, Giá bán, Số lượng tồn kho.
+Hóa đơn: Lưu thông tin về Mã hóa đơn, Ngày lập hóa đơn, Tổng tiền, Mã khách hàng, Mã nhân viên bán hàng.
+Nhân viên bán hàng: Lưu thông tin về Mã nhân viên, Tên nhân viên, Số điện thoại.
+Bài làm
+Thực thể 1: Khách hàng
+Thuộc tính: 
+Mã khách hàng (Khóa chính)
+Tên khách hàng
+Số điện thoại
+Địa chỉ.
+Thực thể 2: Sản phẩm 
+Thuộc tính: 
+Mã sản phẩm (Khóa chính)
+Tên sản phẩm 
+Giá bán
+Số lượng tồn kho.
+Thực thể 3: Hóa đơn 
+Thuộc tính: 
+Mã hóa đơn (Khóa chính)
+Ngày lập hóa đơn
+Tổng tiền 
+Mã khách hàng (Khóa phụ)
+Mã nhân viên bán hàng (Khóa phụ)
+Thực thể 4: Nhân viên bán hàng 
+Thuộc tính: 
+Mã nhân viên (Khóa chính)
+Tên nhân viên
+Số điện thoại.
+
+Mối quan hệ giữa các thực thể:
+Khách hàng - Hóa đơn: 1 - N
+Khách hàng - Sản phẩm: 1 - N
+Hóa đơn - Sản phẩm: N - N
+Sản phẩm - Hóa đơn: 1 - N
+Hóa đơn - Nhân viên bán hàng: 1 - N
+Nhân viên bán hàng - Hóa đơn: 1 - N
+
+  
+
+ 
