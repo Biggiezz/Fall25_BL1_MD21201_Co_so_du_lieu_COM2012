@@ -1,0 +1,14 @@
+ÔN Tập COM2012
+
+1. Tạo CSDL có tên PTPM_COM2012_[Mã số sinh viên] gồm các bảng sau:
+LopHoc(MaLop, TenLop, GiangVien, NgayBatDau,NgayKetThuc)
+SinhVien (MaSinhVien, TenSinhVien, NgaySinh,SoDienThoai,Email)
+ChiTietSinhVien(MaLop,MaSinhVien, Diem)
+note: Trường in đậm không được NULL. Trường in nghiêng là khóa ngoại. 
+
+2. Viết câu lệnh thêm dữ liệu vào 3 bảng. Mỗi bảng 3 bản ghi.
+3. Hiển thị danh sách lớp học gồm tên Lớp và Giảng Viên 
+4. Viết câu lệnh cập nhập điểm cho Sinh Viên có mã số Sinh Viên Là ‘SV01’
+5. Viết câu lệnh xóa Sinh Viên theo mã Sinh Viên ‘SV02’
+6. Viết câu lệnh lấy danh sách các Sinh Viên có điểm cao nhất
+7. Viết câu lệnh lấy danh sách tất cả lớp có Sinh Viên có điểm trung bình 8 điểm trở lên
