@@ -1,0 +1,42 @@
+I. Thiết kế cơ sở dữ liệu
+- Xác định thực thể
+- Xác định thuộc tính
+- Khoá chính, ngoại
+- Các mối quan hệ
+- Loại quan hệ (1-1, 1-N, N-N)
+- Xác định mô hình quan hệ
+- Chuẩn hoá dạng 123NF
+- Vẽ sơ đồ Diagram (ERD)
+II. Tạo cơ sở dữ liệu
+- Tạo bảng (Create table)
+- Tạo cột
+- Kiểu dữ liệu (Varchar,Int,Float,Date,..)
+- Chọn khoá chính (Primary key)
+- Gán khoá phụ (Foreign key)
+- Ràng buộc (Constraint)
+- Thay đổi trong bảng (Alter table: Add, Drop)
+- Chèn dữ liệu (Insert Into)
+III. Truy vấn dữ liệu
+- Dùng Select để chọn cột trong bảng
+- Dùng From để chọn bảng cần truy vấn
+- Dùng Where để gán điều kiện
+- Dùng AND để chèn thêm điều kiện hoặc nhiều
+- Dùng OR để kiểm tra nhiều điều kiện
+- Dùng (=) để gán dữ liệu
+- Dùng Like (wildcard) để đối sánh dữ liệu trong hàng
+- Dùng Concat để nối chuỗi ký tự trong 2 bảng
+- Dùng Join để lấy dữ liệu của 2 hay nhiều bảng và thoải thoả mãn điều kiền
+- Dùng Full Join để lấy tất cả dữ liệu các bản ghi khớp từ cả hai bảng
+- Dùng Left Join để lấy tất cả dữ liệu của bảng bên trái, không có trong bảng phải
+- Dùng Right Join thì ngược lại với Left Join
+- Dùng Group by sắp xếp các bảng ghi theo nhóm
+- Dùng Order by để lọc bảng ghi, (ASC: tang dần và DESC: giảm dần)
+- Dùng Union để kết giữa 2 hay nhiều bảng và dung lệnh Select
+- Dùng Delete để xoá bảng ghi
+- Dùng HAVING để kết hợp với Group by
+- Dùng Min để lấy dữ liệu số thấp nhất trong cột
+- Dùng Max để lấy dữ liệu số cao nhất trong cột
+- Dùng Count để đếm số các bảng ghi
+- Dùng Update để cập nhật lại lại bảng ghi
+- Dùng Distinct để loại bỏ trùng lặp kết quả trả về
+- Dùng Between để lấy dữ liệu giữa 2 kết quả
