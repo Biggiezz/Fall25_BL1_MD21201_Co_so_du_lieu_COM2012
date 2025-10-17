@@ -1,0 +1,25 @@
+Bài 1
+ Phân tích thực thể, thuộc tính và khóa
+Thực thể
+Văn phòng: 
+Thuộc tính: Mã văn phòng (khóa chính) ,Địa điểm.
+  Nhân viên: 
+Thuộc tính: Mã nhân viên (khóa chính),Tên nhân viên,Mã văn phòng(khóa ngoại).
+  Người thân: 
+Thuộc tính: Mã thân nhân(khóa chính), tên , ngày sinh, mối quan hệ với nhân viên , mã nhân viên(khóa ngoại).
+  Bất động sản : 
+Thuộc tính :Mã Bất động sản (khóa chính), Địa chỉ, Mã văn phòng(khóa ngoại), Mã chủ sở hữu(khóa ngoại).
+  Chủ sở hữu: 
+Thuộc tính: Mã chủ sở hữu (khóa chính), Tên, Địa chỉ, Số điện thoại.
+Mối quan hệ và ràng buộc
+Văn phòng - Nhân viên: 1 – N
+ Nhân viên - Văn phòng: 1 - 1 
+Văn phòng - Trưởng văn phòng: 1 – 1
+ Nhân viên - Thân nhân: 1 – N
+ Thân nhân - Nhân viên: 1 – 1
+ Văn phòng - Bất động sản: 1 - N 
+Bất động sản - Văn phòng: 1 – 1
+ Chủ sở hữu - Bất động sản: 1 - N 
+Bất động sản - Chủ sở hữu: 1 - 1
+
+Bài 2 Vẽ biểu đồ ERD
